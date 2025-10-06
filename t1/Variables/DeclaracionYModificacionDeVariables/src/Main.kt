@@ -6,9 +6,9 @@ fun main() {
   que incremente el contador hasta que alcance el límite y muestre el valor en cada iteración.*/
 
     var contador : Int = 0
-    val LIMITE : Int = 0
+    val LIMITE : Int = 10
 
-    while (contador < 11){
+    while (contador <= LIMITE){
         println("Contador: $contador")
         contador++
     }

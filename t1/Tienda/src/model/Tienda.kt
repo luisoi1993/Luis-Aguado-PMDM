@@ -37,7 +37,7 @@ class Tienda(var nombre : String) {
 
     fun agregarProducto(producto: Producto) {
         for (item in 0..almacen.size-1){
-            if(item == null){
+            if(almacen[item] == null){
                almacen[item] = producto
                 return
             }
@@ -47,14 +47,23 @@ class Tienda(var nombre : String) {
 
     fun venderProducto(id : Int){
         for (i in 0..almacen.size-1){
-
-            if(almacen[i]!= null && id == almacen[i]?.id){
+                // no es nulo lo que accedo
+            if(almacen[i]!= null &&  almacen[i]?.id == id ){
                 caja += almacen[i]!!.precio
                 almacen[i] == null
                 return
             }
         }
         println("El id indicado no esta en la lista")
+    }
+
+    fun buscarProductoCategoria(categoria: Categoria){
+        // filtrado -> obteniendo varios
+       val filtro: List<Producto?>  = almacen.filter {
+            return@filter it?.categoria == categoria
+        } as ArrayList<Producto?>
+
+        println("EL numero de elementos resultantes es ${filtro.size}")
     }
 
     fun mostrarProductosCategoria(categoria : Categoria){
