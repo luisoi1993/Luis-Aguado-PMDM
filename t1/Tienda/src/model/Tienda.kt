@@ -62,7 +62,7 @@ class Tienda(var nombre : String) {
        val filtro: List<Producto?>  = almacen.filter {
             return@filter it?.categoria == categoria
         } as ArrayList<Producto?>
-
+q
         println("EL numero de elementos resultantes es ${filtro.size}")
     }
 

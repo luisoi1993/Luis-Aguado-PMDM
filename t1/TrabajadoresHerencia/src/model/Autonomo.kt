@@ -7,7 +7,7 @@ class Autonomo(nombre: String, apellido: String, dni: String, salario: Double, v
     : Trabajador(nombre,apellido,dni,salario,seguro) {
 
     override fun calcularSalarioNeto(): Double {
-        salario = salario *12
+        salario *= 12
         salario - cuotasSs
         return salario
 
