@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HolaMundo</string>
+    <string name="app_name">Hola Mundo 2</string>
     <string name="boton_pulsar">Saludar</string>
     <string name="boton_inicial">App Inicial</string>
     <string name="saludo_snack">Primera App Android</string>

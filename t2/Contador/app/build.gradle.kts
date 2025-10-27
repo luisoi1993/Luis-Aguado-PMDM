@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.holamundo"
+    namespace = "com.example.contador"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.holamundo"
+        applicationId = "com.example.contador"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

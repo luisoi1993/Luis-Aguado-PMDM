@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Contador</string>
+    <string name="contador_app">CONTADOR APP</string>
+    <string name="boton_suma">+</string>
+    <string name="boton_restar">-</string>
+    <string name="boton_cero">0</string>
+    <string name="reset">Reset</string>
+</resources>
