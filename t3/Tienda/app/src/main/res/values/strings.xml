@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Tienda</string>
+    <string-array name="spinner_productos">
+        <item>Todos</item>
+        <item>Mueble</item>
+        <item>Ropa</item>
+        <item>Tecnologia</item>
+    </string-array>
+</resources>

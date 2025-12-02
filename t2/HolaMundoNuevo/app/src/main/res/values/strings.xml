@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Hola Mundo Nuevo</string>
+    <string name="saludo_snack">Primera app android</string>
+</resources>

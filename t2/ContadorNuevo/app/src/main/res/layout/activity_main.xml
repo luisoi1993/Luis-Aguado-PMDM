@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:text="@string/contador_app"
+        android:textSize="30sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/textoContador"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:textSize="40sp"
+        android:text="@string/boton_cero"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/botonIncremento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:textSize="50sp"
+        android:text="@string/boton_suma"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/botonDecremento"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:textSize="50sp"
+        android:text="@string/boton_resta"
+        android:gravity="center"
+        />
+
+</LinearLayout>

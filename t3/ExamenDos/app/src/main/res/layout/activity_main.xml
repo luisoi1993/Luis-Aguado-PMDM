@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextPropietario"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre_y_apellidos"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextMatricula"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/matricula"
+        android:layout_marginTop="20dp"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/editTextPropietario"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/editTextAnyo"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/a_o_matriculaci_n"
+        android:inputType="number"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextMatricula"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerCombustible"
+        android:entries="@array/combustibles"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextAnyo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAutonomia"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/autonom_a"
+        android:inputType="number"
+        android:enabled="false"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerCombustible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonEnviar"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/comprobar_etiqueta"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@id/editTextAutonomia"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

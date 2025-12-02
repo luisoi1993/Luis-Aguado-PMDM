@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Login App Nuevo</string>
+    <string name="introduce_correo">introduce correo</string>
+    <string name="introduce_contrase_a">introduce contraseña</string>
+    <string name="recordar_contrase_a">Recordar contraseña</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="segunda_pantalla">Segunda pantalla</string>
+    <string-array name="plataformas">
+        <item>Google</item>
+        <item>Github</item>
+        <item>Facebook</item>
+    </string-array>
+</resources>

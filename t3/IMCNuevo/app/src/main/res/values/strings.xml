@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">IMC Nuevo</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">mujer</string>
+    <string name="calcular">calcular</string>
+</resources>

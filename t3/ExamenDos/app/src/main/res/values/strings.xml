@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ExamenDos</string>
+    <string name="nombre_y_apellidos">Nombre y apellidos</string>
+    <string name="matricula">Matrícula</string>
+    <string name="a_o_matriculaci_n">Año matriculación</string>
+    <string name="autonom_a">Autonomía</string>
+    <string name="comprobar_etiqueta">Comprobar etiqueta</string>
+    <string name="propietario">Propietario:</string>
+    <string name="matr_cula">Matrícula:</string>
+    <string name="datos">Datos...</string>
+
+    <string-array name="combustibles">
+        <item>Diésel</item>
+        <item>Gasolina</item>
+        <item>Híbrido</item>
+        <item>Eléctrico</item>
+    </string-array>
+</resources>
