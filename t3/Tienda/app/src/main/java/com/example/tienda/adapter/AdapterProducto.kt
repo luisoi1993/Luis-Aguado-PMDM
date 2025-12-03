@@ -17,6 +17,11 @@ import com.google.android.material.snackbar.Snackbar
 
 class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context, val onAddToCart: () -> Unit) :
     RecyclerView.Adapter<AdapterProducto.MyHolder>() {
+      lateinit var listener:  OnProductoCarritoListener
+      init {
+            listener = contexto as OnProductoCarritoListener
+      }
+
     inner class MyHolder(var binding: ItemProductoBinding) : RecyclerView.ViewHolder(binding.root)
 
     // crea un holder de la clase anidada
@@ -54,9 +59,20 @@ class AdapterProducto(var lista: ArrayList<Producto>, var contexto: Context, val
         }
     }
 
+    fun changeList(Lista: ArrayList<Producto>){
+        lista.clear()
+        this.lista = Lista
+       //notifyDataSetChanged()
+        //notificaciones individuales
+    }
+
     // cuantos elementso tendre que pintar
     override fun getItemCount(): Int {
         return lista.size
+    }
+
+    interface OnProductoCarritoListener{
+        fun actualizarContadorCarrito() : Unit
     }
 
 

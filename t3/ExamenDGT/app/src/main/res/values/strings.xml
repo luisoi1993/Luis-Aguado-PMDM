@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Examen DGT</string>
+    <string-array name="spinner">
+        <item>Diesel</item>
+        <item>Gasolina</item>
+        <item>Hibrido</item>
+        <item>Electrico</item>
+    </string-array>
+</resources>

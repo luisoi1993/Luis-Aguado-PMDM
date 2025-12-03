@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/verCarrito"
+        android:title="@string/ver_carrito" />
+
+    <item
+        android:id="@+id/filtrarMuebles"
+        android:title="@string/filtrar" />
+
+    <item
+        android:id="@+id/quitarFiltros"
+        android:title="@string/quitar_filtros" />
+
+</menu>

@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:title="Ejemplo de titulo"
+        android:title="@string/ejemplo_de_titulo"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
 
 
 
-        </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:id="@+id/linearTopBar"
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="0"
+            android:text="@string/_0"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -86,14 +86,14 @@
 
         <Button
             android:id="@+id/buttonCarrito"
-            android:text="Carrito"
+            android:text="@string/carrito"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
         <Button
             android:id="@+id/buttonDos"
-            android:text="Otro"
+            android:text="@string/otro"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>

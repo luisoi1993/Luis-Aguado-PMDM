@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Tienda</string>
+    <string name="comprar">Comprar</string>
+    <string name="volver">Volver</string>
+    <string name="ejemplo_de_titulo">Ejemplo de titulo</string>
+    <string name="_0">0</string>
+    <string name="carrito">Carrito</string>
+    <string name="otro">Otro</string>
+    <string name="nombre">NOMBRE</string>
+    <string name="ver_detalle">Ver detalle</string>
+    <string name="agregar_carrito">Agregar carrito</string>
+    <string name="ver_carrito">Ver carrito</string>
+    <string name="filtrar">Filtrar</string>
+    <string name="quitar_filtros">Quitar filtros</string>
+    <string-array name="spinner_productos">
+        <item>Todos</item>
+        <item>Mueble</item>
+        <item>Ropa</item>
+        <item>Tecnologia</item>
+    </string-array>
+</resources>
