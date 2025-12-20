@@ -5,7 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.CarritoActivity">
+    tools:context=".ui.activity.activities.CarritoActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCarrito"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorToolbal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -13,11 +25,12 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/linearBottom"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarCarrito" />
+
+    <!--
 
     <LinearLayout
         android:id="@+id/linearBottom"
@@ -46,4 +59,5 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

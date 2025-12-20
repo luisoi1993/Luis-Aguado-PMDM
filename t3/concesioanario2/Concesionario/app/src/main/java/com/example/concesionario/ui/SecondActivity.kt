@@ -30,7 +30,7 @@ class SecondActivity : AppCompatActivity() {
         instancias()
     }
     private fun instancias() {
-        listaModelos = arrayListOf("fiat",R.drawable.fiat))
+       // listaModelos = arrayListOf("fiat",R.drawable.fiat))
     }
     private fun initGUI() {
         binding.textoVehiculo.setText(vehiculo)

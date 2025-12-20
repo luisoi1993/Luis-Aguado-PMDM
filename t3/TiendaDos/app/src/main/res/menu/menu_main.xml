@@ -13,4 +13,13 @@
         android:id="@+id/quitarFiltros"
         android:title="@string/quitar_filtros" />
 
+    <item
+        android:id="@+id/menuInfo"
+        android:title="informacion" />
+
+    <item
+        android:id="@+id/menuComparar"
+        android:title="comparar" />
+
+
 </menu>

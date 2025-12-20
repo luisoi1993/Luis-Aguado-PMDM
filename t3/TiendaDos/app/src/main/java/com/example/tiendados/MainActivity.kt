@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,12 +14,20 @@ import com.example.tiendados.adapter.AdapterProducto
 import com.example.tiendados.databinding.ActivityMainBinding
 import com.example.tiendados.dataset.DataSet
 import com.example.tiendados.model.Producto
-import com.example.tiendados.ui.activity.CarritoActivity
+import com.example.tiendados.ui.activity.activities.CarritoActivity
+import com.example.tiendados.ui.activity.dialogs.DialogoComparacion
+import com.example.tiendados.ui.activity.dialogs.DialogoComparar
+import com.example.tiendados.ui.activity.dialogs.DialogoInformacion
+import com.example.tiendados.ui.activity.dialogs.DialogoResultado
+import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity(),
     View.OnClickListener,
-    AdapterProducto.OnProductoCarritoListener {
+    AdapterProducto.OnProductoCarritoListener, DialogoComparar.OnCompararListener {
 
+    private var producto1: Producto? = null
+    private var producto2: Producto? = null
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapterProducto: AdapterProducto
 
@@ -28,6 +37,9 @@ class MainActivity : AppCompatActivity(),
     private lateinit var listaRopa: ArrayList<Producto>
 
     private var seleccion: Any = "Todos"
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +52,8 @@ class MainActivity : AppCompatActivity(),
         acciones()
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onRestart() {
+        super.onRestart()
         binding.textViewCarritoContador.text = DataSet.listaCarrito.size.toString()
     }
 
@@ -109,10 +121,20 @@ class MainActivity : AppCompatActivity(),
 
             }
 
+            R.id.menuInfo -> {
+                val dialogoInformacion: DialogoInformacion = DialogoInformacion()
+                dialogoInformacion.show(supportFragmentManager,null)
+            }
+
             R.id.quitarFiltros -> {
                 // OPCIÓN 3: volver a mostrar todos los productos
                 adapterProducto = AdapterProducto(lista, this)
                 ponerRecycler(adapterProducto)
+            }
+
+            R.id.menuComparar -> {
+                val dialogoComparar: DialogoComparar = DialogoComparar()
+                dialogoComparar.show(supportFragmentManager,null)
             }
         }
 
@@ -142,4 +164,36 @@ class MainActivity : AppCompatActivity(),
     override fun actualizarContadorCarrito() {
         binding.textViewCarritoContador.text = DataSet.listaCarrito.size.toString()
     }
+
+    override fun compararProducto(producto: Producto) {
+        if (producto1 == null) {
+            producto1 = producto;
+        } else if (producto2 == null) {
+            producto2 = producto;
+        } else {
+            /*producto2 = producto1
+            producto1 = producto*/
+            Snackbar.make(
+                binding.root, "No hay espacio para comprar",
+                Snackbar.LENGTH_SHORT
+            ).show()
+        }
+    }
+
+    override fun onCompararSelected(opcion: String?) {
+
+        if (producto1 == null || producto2 == null || opcion == null) {
+            Snackbar.make(binding.root, "Selecciona dos productos primero", Snackbar.LENGTH_SHORT).show()
+            return
+        }
+
+        val dialogo = DialogoComparacion(
+            producto1!!,
+            producto2!!,
+            opcion
+        )
+
+        dialogo.show(supportFragmentManager, "DialogoComparacion")
+    }
+
 }

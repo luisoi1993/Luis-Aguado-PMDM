@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">To Do List</string>
+    <string-array name="prioridades">
+        <item>Todas</item>
+        <item>Baja</item>
+        <item>Media</item>
+        <item>Prioritaria"</item>
+    </string-array>
+
+    <string-array name="estados">
+        <item>Todas</item>
+        <item>por hacer</item>
+        <item>haciendo</item>
+        <item>"hecho"</item>
+    </string-array>
+
+    <string-array name="prioridadesCrear">
+        <item>Baja</item>
+        <item>Media</item>
+        <item>Prioritaria"</item>
+    </string-array>
+</resources>

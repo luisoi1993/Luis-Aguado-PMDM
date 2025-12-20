@@ -4,13 +4,17 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tiendados.dataset.DataSet
-import com.example.tiendados.ui.activity.DetalleActivity
+import com.example.tiendados.ui.activity.activities.DetalleActivity
 import com.example.tiendados.R
 import com.example.tiendados.databinding.ItemProductoBinding
 import com.example.tiendados.model.Producto
+import com.example.tiendados.ui.activity.dialogs.DialogoBoton
+import com.example.tiendados.ui.activity.dialogs.DialogoComparar
+import com.example.tiendados.ui.activity.dialogs.DialogoInformacion
 
 import com.google.android.material.snackbar.Snackbar
 
@@ -48,16 +52,35 @@ class AdapterProducto(
         }
 
         holder.binding.btnCompra.setOnClickListener {
-            DataSet.anadirProducto(producto)
-            DataSet.contador++
-            DataSet.total += producto.precio
-            listener.actualizarContadorCarrito()
+
+            val dialogo = DialogoBoton { aceptado ->
+
+                if (aceptado) {
+                    DataSet.anadirProducto(producto)
+                    DataSet.contador++
+                    DataSet.total += producto.precio
+                    listener.actualizarContadorCarrito()
+                }
+            }
+
+            dialogo.show(
+                (holder.itemView.context as AppCompatActivity).supportFragmentManager,
+                null
+            )
         }
+
+      holder.binding.btnComparar.setOnClickListener {
+          listener.compararProducto(producto)
+      }
+
+
     }
 
     override fun getItemCount() = lista.size
 
     interface OnProductoCarritoListener {
         fun actualizarContadorCarrito()
+
+        fun compararProducto(producto: Producto)
     }
 }

@@ -9,6 +9,9 @@ class DataSet {
 
         var contador = 0
 
+        var bolleanBoton: Boolean = false
+
+
         var total = 0.0
         var lista: ArrayList<Producto> = arrayListOf(
             Producto(1, "Armario", 112, 10.0, "descripcion1", "muebles", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbycGI7iVvr1aWwCJvaf3NfohBYYfQNgypeg&s"),
@@ -31,6 +34,12 @@ class DataSet {
         fun anadirProducto(producto: Producto){
             listaCarrito.add(producto)
         }
+
+        fun quitarProducto(producto: Producto){
+            listaCarrito.remove(producto)
+        }
+
+
 
     }
 }
