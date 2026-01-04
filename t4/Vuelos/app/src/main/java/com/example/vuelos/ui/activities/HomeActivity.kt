@@ -1,6 +1,9 @@
 package com.example.vuelos.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +25,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+
         acciones()
         initGUI()
     }
@@ -35,7 +40,23 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         binding.recyclerViewVuelos.adapter = adapterVuelo
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_principal, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+           /* R.id.menu_item_favoritos -> {
+                val intent = Intent(this, FavoritosActivity::class.java)
+                startActivity(intent)
+            } */
+            R.id.menu_item_salir -> {
+                finish()
+            }
+        }
+        return true;
+    }
     private fun acciones() {
         binding.buttonVuelo.setOnClickListener(this)
     }
