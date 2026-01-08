@@ -47,10 +47,10 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-           /* R.id.menu_item_favoritos -> {
-                val intent = Intent(this, FavoritosActivity::class.java)
+           R.id.menu_item_favoritos -> {
+                val intent = Intent(this, FavoritoActivity::class.java)
                 startActivity(intent)
-            } */
+            }
             R.id.menu_item_salir -> {
                 finish()
             }
