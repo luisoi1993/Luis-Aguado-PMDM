@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.compras"
+    namespace = "com.example.agendajson"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.compras"
+        applicationId = "com.example.agendajson"
         minSdk = 26
         targetSdk = 36
         versionCode = 1
@@ -42,6 +42,7 @@ android {
 
 dependencies {
     implementation("com.github.bumptech.glide:glide:5.0.5")
+    implementation("com.google.code.gson:gson:2.13.2")
     implementation("com.android.volley:volley:1.2.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
