@@ -43,7 +43,7 @@
             android:paddingTop="6dp"
             android:text="Género" />
 
-        
+
         <TextView
             android:id="@+id/textAge"
             android:layout_width="match_parent"

@@ -50,6 +50,9 @@ class UserAdapter(
                     listener.onUserClick(user)
                     true
                 }
+                R.id.menu_user_favorito -> {
+                    true
+                }
                 else -> false
             }
         }
