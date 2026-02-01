@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.tienda.databinding.FragmentMainBinding
+import com.example.tienda.dataset.DataSet
 
 class MainFragment: Fragment() {
     private lateinit var binding: FragmentMainBinding
@@ -22,5 +23,12 @@ class MainFragment: Fragment() {
     ): View? {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.textNombreMain.text = DataSet.usuarioLogeado?.nombre
+
+
     }
 }

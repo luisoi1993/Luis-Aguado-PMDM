@@ -7,13 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.tienda.R
 import com.example.tienda.databinding.FragmentRegistroBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Usuario
+import com.example.tienda.ui.dialog.DialogRegistroOk
 import com.google.android.material.snackbar.Snackbar
 
-class RegisterFragment : Fragment(), View.OnClickListener {
+class RegisterFragment : Fragment(), View.OnClickListener, DialogRegistroOk.onBotonListener {
     private lateinit var binding: FragmentRegistroBinding
+    private lateinit var listener: DialogRegistroOk.onBotonListener
+
+    private var booleanDialogo: Boolean? = null
+
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,6 +59,29 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         if (p0 == binding.buttonRegistro){
+            if (binding.editNombreRegistro.text.isEmpty() || binding.editApellidoRegistro.text.isEmpty() || binding.editCorreo.text.isEmpty() || binding.editContrasenia.text.isEmpty()){
+                //mostrar dialogo DialogoRegistroFail
+                DialogRegistroOk().show(parentFragmentManager, "okDialog")
+
+
+            }else{
+                //mostrar dialogo DialogoRegistroOk
+                DialogRegistroOk().show(childFragmentManager, "okDialog")
+
+
+
+
+
+
+            }
+
+
+        }
+    }
+
+    override fun botonBoolean(boolean: Boolean?) {
+        if (boolean == true){
+
             val nombre = binding.editNombreRegistro.text.toString()
             val apellido = binding.editApellidoRegistro.text.toString()
             val edad = binding.spinnerEdadRegistro.selectedItem.toString().toInt()
@@ -65,7 +96,11 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                 Snackbar.LENGTH_LONG
             )
             snackbar.show()
+        }else{
+            Snackbar.make(binding.root, "Usuario no registrado", Snackbar.LENGTH_LONG).show()
 
         }
+
+
     }
 }

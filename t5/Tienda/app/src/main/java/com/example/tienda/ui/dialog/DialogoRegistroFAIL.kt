@@ -5,15 +5,12 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
-class DialogoRegistroFale: DialogFragment() {
+class DialogoRegistroFAIL: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        var builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Error")
-        builder.setMessage("Algo ha fallafo")
-        builder.setPositiveButton("ok", null)
-
-
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Registro incorrecto")
+        builder.setMessage("No se ha podido crear el usuario")
         return builder.create()
     }
 }

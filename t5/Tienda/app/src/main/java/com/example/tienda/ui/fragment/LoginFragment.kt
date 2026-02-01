@@ -10,7 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tienda.R
 import com.example.tienda.databinding.FragmentLoginBinding
+import com.example.tienda.dataset.DataSet
 import com.google.android.material.snackbar.Snackbar
+
+import kotlin.toString
 
 class LoginFragment : Fragment() {
 
@@ -32,26 +35,26 @@ class LoginFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        binding.buttonRegistro.setOnClickListener {
-            if(Dataset.loginUser(binding.editCorreo.text.toString(), binding.editContrasenia.text.toString())){
-                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-            }else {
-                Snackbar.make(
-                    binding.root,
-                    "Usuario no registrado",
-                    Snackbar.LENGTH_LONG
+        binding.buttonLogin.setOnClickListener {
+            if (DataSet.loginUser(
+                    binding.editCorreoLogin.text.toString(),
+                    binding.editPassLogin.text.toString()
                 )
-                    .setAction("Quieres registrarlo",{findNavController()})
+            ) {
+                findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            } else {
+                Snackbar
+                    .make(binding.root, "Usuario no encontrado", Snackbar.LENGTH_SHORT)
+                    .setAction("Quieres registrarlo",
+                        { findNavController().navigate(R.id.action_loginFragment_to_registerFragment) })
                     .show()
             }
-
         }
-
-        binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+        binding.buttonRegistro.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
+    }
 
 
 
     }
-}

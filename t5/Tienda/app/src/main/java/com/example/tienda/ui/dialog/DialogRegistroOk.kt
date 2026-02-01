@@ -9,11 +9,22 @@ class DialogRegistroOk: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireContext())
+
         builder.setTitle("Registro correcto")
         builder.setMessage("¿Quieres registrarte?")
-        builder.setPositiveButton("Si",{view,position ->})
-        builder.setNegativeButton("No", {view,position ->})
+
+        builder.setPositiveButton("Si") { _, _ ->
+            (parentFragment as? onBotonListener)?.botonBoolean(true)
+        }
+
+        builder.setNegativeButton("No") { _, _ ->
+            (parentFragment as? onBotonListener)?.botonBoolean(false)
+        }
 
         return builder.create()
+    }
+
+    interface onBotonListener{
+        fun botonBoolean(boolean: Boolean?)
     }
 }

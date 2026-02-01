@@ -49,7 +49,7 @@
     </dialog>
     <dialog
         android:id="@+id/dialogoRegistroFale"
-        android:name="com.example.tienda.ui.dialog.DialogoRegistroFale"
+        android:name="com.example.tienda.ui.dialog.DialogoRegistroFAIL"
         android:label="DialogoRegistroFale" />
 
 

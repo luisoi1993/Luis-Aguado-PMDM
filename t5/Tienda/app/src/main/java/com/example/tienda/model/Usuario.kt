@@ -1,12 +1,11 @@
 package com.example.tienda.model
 
-import kotlinx.serialization.Serializable
+import java.io.Serializable
 
-@Serializable
-data class Usuario(
-    val nombre: String,
-    val apellido: String,
-    val edad: Int,
-    val correo: String,
-    val contrasenia: String
-)
+ class Usuario(
+    var nombre: String,
+    var apellido: String,
+    var edad: Int,
+    var correo: String,
+    var contrasenia: String
+): Serializable
