@@ -46,7 +46,11 @@ class LoginFragment : Fragment() {
                 Snackbar
                     .make(binding.root, "Usuario no encontrado", Snackbar.LENGTH_SHORT)
                     .setAction("Quieres registrarlo",
-                        { findNavController().navigate(R.id.action_loginFragment_to_registerFragment) })
+                        {
+                            val bundle = Bundle()
+                            bundle.putString("correo", binding.editCorreoLogin.text.toString())
+                            bundle.putString("pass", binding.editPassLogin.text.toString())
+                            findNavController().navigate(R.id.action_loginFragment_to_registerFragment,bundle) })
                     .show()
             }
         }

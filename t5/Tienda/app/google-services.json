@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "662433236836",
+    "project_id": "ladces2526",
+    "storage_bucket": "ladces2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:662433236836:android:6d341f5a913a7ab5095c71",
+        "android_client_info": {
+          "package_name": "com.example.tienda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXwyVhvm1PccoUHmO7M_f34mcdNZGWo28"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

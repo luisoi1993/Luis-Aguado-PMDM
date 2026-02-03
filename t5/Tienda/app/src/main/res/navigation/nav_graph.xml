@@ -29,6 +29,15 @@
         <action
             android:id="@+id/action_registerFragment_to_dialogoRegistroFale"
             app:destination="@id/dialogoRegistroFale" />
+        <argument
+            android:name="correo"
+            app:argType="string" />
+        <argument
+            android:name="pass"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_main"

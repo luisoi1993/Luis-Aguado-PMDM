@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.trivialfragments.databinding.ActivityMainBinding
+import com.example.trivialfragments.dataset.DataSet
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +40,18 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+
+            R.id.menu_record -> {
+                Snackbar.make(binding.root, "EL record es ${DataSet.puntuacion}", Snackbar.LENGTH_SHORT).show()
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 

@@ -13,18 +13,26 @@ import com.example.tienda.databinding.FragmentRegistroBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Usuario
 import com.example.tienda.ui.dialog.DialogRegistroOk
+import com.example.tienda.ui.dialog.DialogoRegistroFAIL
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterFragment : Fragment(), View.OnClickListener, DialogRegistroOk.onBotonListener {
     private lateinit var binding: FragmentRegistroBinding
     private lateinit var listener: DialogRegistroOk.onBotonListener
+    private var nombre: String? =null
+    private var pass: String? = null
 
     private var booleanDialogo: Boolean? = null
 
+    private lateinit var auth: FirebaseAuth;
 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+        nombre = this.arguments?.getString("correo")
+        pass = this.arguments?.getString("pass")
+        auth = FirebaseAuth.getInstance()
 
 
     }
@@ -45,6 +53,10 @@ class RegisterFragment : Fragment(), View.OnClickListener, DialogRegistroOk.onBo
         binding.spinnerEdadRegistro.setSelection(0)
 
         this.binding.buttonRegistro.setOnClickListener(this)
+
+        binding.editCorreo.setText(nombre)
+        binding.editContrasenia.setText(pass)
+
     }
 
 
@@ -61,17 +73,27 @@ class RegisterFragment : Fragment(), View.OnClickListener, DialogRegistroOk.onBo
         if (p0 == binding.buttonRegistro){
             if (binding.editNombreRegistro.text.isEmpty() || binding.editApellidoRegistro.text.isEmpty() || binding.editCorreo.text.isEmpty() || binding.editContrasenia.text.isEmpty()){
                 //mostrar dialogo DialogoRegistroFail
-                DialogRegistroOk().show(parentFragmentManager, "okDialog")
+
+
+               // DialogRegistroOk().show(parentFragmentManager, "okDialog")
 
 
             }else{
                 //mostrar dialogo DialogoRegistroOk
-                DialogRegistroOk().show(childFragmentManager, "okDialog")
 
+                // registra un usuario
+                auth.createUserWithEmailAndPassword(binding.editCorreo.text.toString(), binding.editContrasenia.text.toString()).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        Snackbar.make(binding.root, "Usuario registrado correctamente", Snackbar.LENGTH_LONG).show()
 
+                        val usuarioLogeado = auth.currentUser!!.uid
+                        //findnav
+                        DialogRegistroOk().show(childFragmentManager, "okDialog")
 
-
-
+                    }else {
+                        DialogoRegistroFAIL().show(childFragmentManager, "failDialog")
+                    }
+                }
 
             }
 
