@@ -12,6 +12,7 @@ import com.example.tiendados.databinding.FragmentRegistroBinding
 import com.example.tiendados.databinding.FramentLoginBinding
 import com.example.tiendados.model.User
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class MainFragment : Fragment() {
 
@@ -19,10 +20,16 @@ class MainFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var uid: String
 
+    private lateinit var database: FirebaseDatabase
+
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         auth = FirebaseAuth.getInstance()
         uid = auth.currentUser!!.uid
+        database =
+            FirebaseDatabase.getInstance("https://ladces2526-default-rtdb.europe-west1.firebasedatabase.app/")
+        database.reference.child("usuarioLogeado").setValue(auth.currentUser!!.uid)
     }
 
     override fun onCreateView(
@@ -37,6 +44,16 @@ class MainFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         binding.textNombreMain.text = uid
+        binding.guardarDatos.setOnClickListener {
+           val referencia = database.reference.child("nombreApp")
+            referencia.setValue("App Firebase")
+
+        }
+        binding.eliminarDatos.setOnClickListener {
+            val referencia = database.reference.child("nombreApp")
+            referencia.setValue("App Firebase")
+
+        }
+    }
     }
 
-}

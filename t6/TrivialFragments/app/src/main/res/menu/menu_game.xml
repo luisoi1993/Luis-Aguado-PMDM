@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Cerrar sesión"
+        android:id="@+id/menu_sesion"
+        />
+    <item
+        android:title="Información"
+        android:id="@+id/menu_informacion"
+        />
+</menu>
+

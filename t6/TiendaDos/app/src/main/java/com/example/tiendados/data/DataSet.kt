@@ -13,10 +13,12 @@ class DataSet {
                 return true
             }
         }
-
+        /*
         fun loginUser(correo: String, pass: String): User? {
             return listaUsuarios
                 .find { it.correo == correo && it.pass == pass } ;
         }
+        */
+
     }
 }

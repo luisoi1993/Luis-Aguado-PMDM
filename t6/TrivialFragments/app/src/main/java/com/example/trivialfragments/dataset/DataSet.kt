@@ -26,6 +26,16 @@ class DataSet {
             }
             return false
         }
+        fun comprobarUsuario(correo: String, password: String): Boolean{
+            for (usuario in listaUsuarios){
+                if (usuario.correo == correo && usuario.password == password){
+                    return true
+                }
+            }
+            return false
+        }
+        var usuarioLogeado = Usuario("oi","", "",0)
+
 
     }
 }
