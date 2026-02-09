@@ -45,6 +45,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
         this.binding.buttonJugar.setOnClickListener(this)
+        binding.numeroAciertos.text = "Número de aciertos: ${DataSet.puntuacion}"
     }
 
     //sobrescribir las dos funciones del menu
@@ -77,7 +78,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             val numeroPreguntas = binding.editTextNumeroPreguntas.text.toString().toIntOrNull() ?: 10
             DataSet.puntuacion = 0
 
-            val urlConsulta = "https://opentdb.com/api.php?amount=20"
+            val urlConsulta = "https://opentdb.com/api.php?amount=$numeroPreguntas"
             val gson: Gson = Gson()
             val peticion: JsonObjectRequest = JsonObjectRequest(urlConsulta,
                 {
@@ -94,6 +95,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
 
 
                     }
+
                 },
                 {
                     Log.v("preguntas","${it.message}")
@@ -101,6 +103,12 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             Volley.newRequestQueue(this).add(peticion)
         }
     }
+
+    fun actualizarAciertos() {
+        binding.numeroAciertos.text =
+            "Número de aciertos: ${DataSet.puntuacion}"
+    }
+
 
 
 }

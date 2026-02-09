@@ -53,15 +53,11 @@ class LoginFragment: Fragment(), View.OnClickListener {
 
 
                 }
-                Snackbar.make(
-                    binding.root,
-                    "Bienvenido ${DataSet.usuarioLogeado.nick}",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                findNavController().navigate(R.id.action_loginFragment_to_gameActivity)
 
             }
 
-          //  findNavController().navigate(R.id.action_loginFragment_to_gameActivity)
+
 
 
         }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.example.trivialfragments.dataset.DataSet
 import com.example.trivialfragments.model.Pregunta
+import com.example.trivialfragments.ui.activities.GameActivity
 
 class QuestionDialog : DialogFragment() {
 
@@ -28,6 +29,9 @@ class QuestionDialog : DialogFragment() {
         builder.setItems(opciones.toTypedArray()) { dialogInterface, i ->
             if (opciones[i] == pregunta.correct_answer) {
                 DataSet.puntuacion++
+                (activity as? GameActivity)?.actualizarAciertos()
+                DataSet.ponerRecord(DataSet.puntuacion, DataSet.usuarioLogeado.nick)
+
             }
             dialogInterface.dismiss()
         }

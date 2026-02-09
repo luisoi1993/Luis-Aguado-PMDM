@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.trivialfragments.databinding.ActivityMainBinding
 import com.example.trivialfragments.dataset.DataSet
+import com.example.trivialfragments.ui.dialogs.DialogRecord
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +47,9 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
 
             R.id.menu_record -> {
-                Snackbar.make(binding.root, "EL record es ${DataSet.puntuacion}", Snackbar.LENGTH_SHORT).show()
+                //Snackbar.make(binding.root, "EL record es ${DataSet.puntuacion}", Snackbar.LENGTH_SHORT).show()
+                val dialog = DialogRecord()
+                dialog.show(supportFragmentManager, "DialogRecord")
                 true
             }
 
