@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "102695229859",
+    "firebase_url": "https://examenespmdm-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "examenespmdm",
+    "storage_bucket": "examenespmdm.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:102695229859:android:647379825607f99b3ba216",
+        "android_client_info": {
+          "package_name": "com.example.apiexamenespmdm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSPcLBc8GN1X0mKTCWbbCz3ngCEp42idA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
