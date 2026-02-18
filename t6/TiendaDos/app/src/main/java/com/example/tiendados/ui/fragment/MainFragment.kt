@@ -9,9 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tiendados.adapter.UserAdapter
 import com.example.tiendados.databinding.FragmentMainBinding
+import com.example.tiendados.model.Product
 import com.example.tiendados.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.gson.Gson
 
 class MainFragment : Fragment() {
 
@@ -29,25 +31,50 @@ class MainFragment : Fragment() {
     ): View {
 
         binding = FragmentMainBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         auth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance()
 
-        // Recycler
         adapter = UserAdapter(listaUsuarios, requireContext())
         binding.recyclerProductos.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerProductos.adapter = adapter
 
-        cargarUsuariosFirebase()     // lista completa
-        cargarUsuarioLogeado()      // nick arriba
+        return binding.root
     }
 
-    // 🔥 LISTA COMPLETA (RecyclerView)
+    override fun onResume() {
+        super.onResume()
+        val listaProductos: ArrayList<Product> = ArrayList()
+
+        database.reference
+            .child("productos")
+            .child("products")
+            .addChildEventListener(object : ChildEventListener {
+
+                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+                    val gson = Gson()
+                    val json = gson.toJson(snapshot.value)
+                    val product = gson.fromJson(json, Product::class.java)
+                    Log.v("FIREBASE", "Producto añadido: ${product.weight}")
+                    listaProductos.add(product)
+
+
+                }
+
+                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
+
+                override fun onChildRemoved(snapshot: DataSnapshot) {}
+
+                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
+
+                override fun onCancelled(error: DatabaseError) {}
+            })
+
+        cargarUsuariosFirebase()
+        cargarUsuarioLogeado()
+    }
+
+
     private fun cargarUsuariosFirebase() {
 
         database.reference.child("usuarios")
@@ -69,8 +96,7 @@ class MainFragment : Fragment() {
             })
     }
 
-
-    // 🔥 SOLO USUARIO ACTUAL (nick)
+    // 🔥 SOLO USUARIO ACTUAL
     private fun cargarUsuarioLogeado() {
 
         val uid = auth.currentUser?.uid ?: return
@@ -79,9 +105,7 @@ class MainFragment : Fragment() {
             .addListenerForSingleValueEvent(object : ValueEventListener {
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-
                     val user = snapshot.getValue(User::class.java)
-
                     binding.textNombreMain.text = user?.nombre ?: "Usuario"
                 }
 

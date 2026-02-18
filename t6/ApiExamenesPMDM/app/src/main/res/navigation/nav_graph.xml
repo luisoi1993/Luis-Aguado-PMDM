@@ -9,5 +9,21 @@
     <fragment
         android:id="@+id/fragmentImportacion"
         android:name="com.example.apiexamenespmdm.ui.fragments.FragmentImportacion"
-        android:label="FragmentImportacion" />
+        android:label="FragmentImportacion" >
+        <action
+            android:id="@+id/action_fragmentImportacion_to_fragmentListado"
+            app:destination="@id/fragmentListado" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentListado"
+        android:name="com.example.apiexamenespmdm.ui.fragments.FragmentListado"
+        android:label="FragmentListado" >
+        <action
+            android:id="@+id/action_fragmentListado_to_fragmentDetalle"
+            app:destination="@id/fragmentDetalle" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetalle"
+        android:name="com.example.apiexamenespmdm.ui.fragments.FragmentDetalle"
+        android:label="FragmentDetalle" />
 </navigation>

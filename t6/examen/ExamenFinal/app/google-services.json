@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "137322929458",
+    "project_id": "examendos-ff69d",
+    "storage_bucket": "examendos-ff69d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137322929458:android:6794d6aa447665456e8b2b",
+        "android_client_info": {
+          "package_name": "com.example.examenfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASLP-l1cUitf-zkF3jCDL5rgcz36AYvsg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
